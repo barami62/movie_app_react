@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/barami62/movie_app_react/static/css/main.ade52640.chunk.css",
+    "main.js": "/barami62/movie_app_react/static/js/main.f5f616c1.chunk.js",
+    "main.js.map": "/barami62/movie_app_react/static/js/main.f5f616c1.chunk.js.map",
+    "runtime-main.js": "/barami62/movie_app_react/static/js/runtime-main.011accee.js",
+    "runtime-main.js.map": "/barami62/movie_app_react/static/js/runtime-main.011accee.js.map",
+    "static/js/2.a786e030.chunk.js": "/barami62/movie_app_react/static/js/2.a786e030.chunk.js",
+    "static/js/2.a786e030.chunk.js.map": "/barami62/movie_app_react/static/js/2.a786e030.chunk.js.map",
+    "index.html": "/barami62/movie_app_react/index.html",
+    "precache-manifest.4d5107e579bd3d1e57bcc3638df366c8.js": "/barami62/movie_app_react/precache-manifest.4d5107e579bd3d1e57bcc3638df366c8.js",
+    "service-worker.js": "/barami62/movie_app_react/service-worker.js",
+    "static/css/main.ade52640.chunk.css.map": "/barami62/movie_app_react/static/css/main.ade52640.chunk.css.map",
+    "static/js/2.a786e030.chunk.js.LICENSE.txt": "/barami62/movie_app_react/static/js/2.a786e030.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.011accee.js",
+    "static/js/2.a786e030.chunk.js",
+    "static/css/main.ade52640.chunk.css",
+    "static/js/main.f5f616c1.chunk.js"
+  ]
+}
