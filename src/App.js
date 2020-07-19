@@ -1,33 +1,49 @@
 import React from 'react';
+import axios from 'axios';
+import Movie from './Movie';
+import './App.css';
 
-function Food ({name, picture}) {
-  return (
-    <div>
-      <h1>I like {name}!</h1>
-      <img src={picture} />
-    </div>);
-}
+class App extends React.Component {
+  state = {
+    isLoading: true,
+    movies: [],
+  };
 
-const foodILike = [
-  {
-    name: 'kimchi',
-    image: 'https://search.naver.com/search.naver?where=image&sm=tab_jum&query=%EA%B9%80%EC%B9%98#'
-  },
-  {
-    name: 'ramen',
-    image: 'https://search.naver.com/search.naver?sm=tab_hty.top&where=image&query=%EB%9D%BC%EB%A9%B4&oquery=%EA%B9%80%EC%B9%98&tqi=Ux6Etwp0YidssZ1wVWNssssstJK-155485#'
-  },
-  {
-    name: 'bulgogi',
-    image: 'https://search.naver.com/search.naver?sm=tab_hty.top&where=image&query=%EB%B6%88%EA%B3%A0%EA%B8%B0&oquery=%EB%9D%BC%EB%A9%B4&tqi=Ux6EOsp0YidssZE9LVwssssstJN-211923#'
+  getMovies = async () => {
+    const { data: { data: { movies } } } = await axios.get('https://yts-proxy.now.sh/list_movies.json?sort_by=rating');
+    this.setState({ movies, isLoading: false });
+  };
+
+  componentDidMount() {
+    this.getMovies();
+  };
+
+  render() {
+    const { isLoading, movies } = this.state;
+    return (
+      <section className="container">
+        {isLoading
+          ? <div className="loader">
+            <span className="loader__text">Loading...</span>
+          </div>
+          : (
+            <div className="movies">
+              {movies.map(movie => (
+                <Movie
+                  key={movie.id}
+                  id={movie.id}
+                  year={movie.year}
+                  title={movie.title}
+                  summary={movie.summary}
+                  poster={movie.medium_cover_image} 
+                  genres={movie.genres} 
+                />
+              ))}
+            </div>
+          )}
+      </section>
+    );
   }
-];
-
-function App() {
-  return (<div>
-    {foodILike.map(dish => <Food name={dish.name} picture={dish.image}/>)}
-    </div>
-  );
 }
 
 export default App;
